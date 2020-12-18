@@ -14,8 +14,8 @@ def read_csv():
 
     ops(dict_list)
 
-def ops(dict_list):
 
+def ops(dict_list):
     final = [float(x["Final"]) for x in dict_list]
     maximo = [float(x["Maximo"]) for x in dict_list]
     minimo = [float(x["Minimo"]) for x in dict_list]
@@ -24,21 +24,18 @@ def ops(dict_list):
 
     mins = (str(min(final)), str(min(maximo)), str(min(minimo)), str(min(volumen)), str(min(efectivo)))
     maxs = (str(max(final)), str(max(maximo)), str(max(minimo)), str(max(volumen)), str(max(efectivo)))
-    meds = (str(round(sum(final)/len(final), 1)), str(round(sum(maximo)/len(maximo), 1)), str(round(sum(minimo)/len(minimo), 1)), str(round(sum(volumen)/len(volumen), 1)), str(round(sum(efectivo)/len(efectivo), 1)))
-
+    meds = (str(round(sum(final) / len(final), 1)), str(round(sum(maximo) / len(maximo), 1)),
+            str(round(sum(minimo) / len(minimo), 1)), str(round(sum(volumen) / len(volumen), 1)),
+            str(round(sum(efectivo) / len(efectivo), 1)))
 
     for x in dict_list:
-        del(x["Nombre"])
-
-    print(mins)
-    print(maxs)
-    print(meds)
+        del (x["Nombre"])
 
     write(mins, maxs, meds)
 
-def write(mins, maxs, meds):
 
-    keys=["Final","Maximo","Minimo","Volumen","Efectivo"]
+def write(mins, maxs, meds):
+    keys = ["Final", "Maximo", "Minimo", "Volumen", "Efectivo"]
 
     with open("resultado.csv", "w") as f:
 
